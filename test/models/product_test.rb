@@ -60,13 +60,18 @@ class ProductTest < ActiveSupport::TestCase
                  product.errors[:title]
   end
 
-  test "title length" do
+  test "title is not valid if is greater than 10" do
     product = Product.new(description: "yyy", 
                           price:       1, 
                           image_url:   "fred.gif")
     product.title = "title"
     assert product.invalid?, "#{product.title} shouldn't be valid"
+  end
 
+  test "title is valid if is greater than 10" do
+    product = Product.new(description: "yyy", 
+                          price:       1, 
+                          image_url:   "fred.gif")
     product.title = "title greater than 10"
     assert product.valid?, "#{product.title} should be valid"
   end
