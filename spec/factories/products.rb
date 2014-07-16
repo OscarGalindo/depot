@@ -1,14 +1,10 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :product do
-    title 'title of product'
-    description 'description of product'
-    price '0.02'
-    image_url 'image.jpg'
-  end
-  factory :dummy do
-    title 'title of product'
-    description 'description of product'
-    price '0.02'
-    image_url 'image.jpag'
+    title       Faker::Lorem.sentence
+    description Faker::Lorem.paragraph
+    price       Faker::Commerce.price
+    image_url   Faker::Company.logo
   end
 end
