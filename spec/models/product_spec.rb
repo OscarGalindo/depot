@@ -36,13 +36,13 @@ describe Product do
     it "is invalid if title length is minor than 10" do
       product = build(:product, title: "title")
       product.valid?
-      product.errors[:title].to_s.should match(/is too short/)
+      expect(product.errors[:title].to_s).to match /is too short/
     end
 
     it "is invalid if the image_url doesn't have extension gif, jpg or png" do
       product = build(:product, image_url: 'image.pdf')
       product.valid?
-      product.errors[:image_url].to_s.should match(/must be a URL for GIF, JPG or PNG/)
+      expect(product.errors[:image_url].to_s).to match /must be a URL for GIF, JPG or PNG/
     end
   end
 end
