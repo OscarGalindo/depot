@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'product' do
+describe Product do
   describe "presence of data" do
     it "is valid with a title, description and image_url" do
       expect(build(:product)).to be_valid
